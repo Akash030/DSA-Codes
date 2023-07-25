@@ -1,0 +1,39 @@
+#include<stdio.h>
+#include<math.h>
+#include<string.h>
+#include<stdlib.h>
+int v=4;
+int m[10][10]={{0,1,1,0},{1,0,0,1},{1,0,0,1},{0,1,1,0}};
+int src=0,visited[10];
+
+void dfs(int m[10][10],int v,int src)
+{
+    int i;
+
+    visited[src]=1;
+    for(i=0;i<v;i++)
+    {
+        if(m[src][i]==1&&visited[i]==0)
+        {
+            printf("%d\t",i);
+            dfs(m,v,i);
+        }
+    }
+
+
+}
+
+int main()
+{
+    int i;
+    for(i=0;i<v;i++)
+    {
+        visited[i]=0;
+    }
+    printf("%d\t",src);
+    dfs(m,v,src);
+    return 0;
+
+
+
+}
